@@ -10,6 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -41,6 +43,10 @@ public class SeriesList implements Serializable {
 	//The list of returned series in this collection.
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "seriesList")
 	private List<SeriesSummary> listSeriesSummary;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "character_list_id")
+	private Character characterList;
 
 	public Long getId() {
 		return id;
@@ -80,6 +86,14 @@ public class SeriesList implements Serializable {
 
 	public void setListSeriesSummary(List<SeriesSummary> listSeriesSummary) {
 		this.listSeriesSummary = listSeriesSummary;
+	}
+	
+	public Character getCharacterList() {
+		return characterList;
+	}
+
+	public void setCharacterList(Character characterList) {
+		this.characterList = characterList;
 	}
 
 	@Override
