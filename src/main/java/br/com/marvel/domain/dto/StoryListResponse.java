@@ -7,11 +7,9 @@ public class StoryListResponse implements Serializable {
 	
 	private static final long serialVersionUID = -6509220437617739142L;
 
-	private Long id;
+	private String available;
 
-	private int available;
-
-	private int returned;
+	private String returned;
 
 	private String collectionUri;
 
@@ -19,27 +17,19 @@ public class StoryListResponse implements Serializable {
 
 	private CharacterResponse characterResponseList;
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public int getAvailable() {
+	public String getAvailable() {
 		return available;
 	}
 
-	public void setAvailable(int available) {
+	public void setAvailable(String available) {
 		this.available = available;
 	}
 
-	public int getReturned() {
+	public String getReturned() {
 		return returned;
 	}
 
-	public void setReturned(int returned) {
+	public void setReturned(String returned) {
 		this.returned = returned;
 	}
 

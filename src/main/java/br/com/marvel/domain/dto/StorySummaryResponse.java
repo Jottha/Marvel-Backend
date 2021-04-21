@@ -6,8 +6,6 @@ public class StorySummaryResponse implements Serializable {
 
 	private static final long serialVersionUID = -2382350869887838952L;
 
-	private Long id;
-
 	private String resourceUri;
 
 	private String name;
@@ -17,14 +15,6 @@ public class StorySummaryResponse implements Serializable {
 	private StoryListResponse StoryListResponse;
 
 	private CharacterResponse characterResponseList;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getResourceUri() {
 		return resourceUri;

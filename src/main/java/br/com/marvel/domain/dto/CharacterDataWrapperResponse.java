@@ -6,9 +6,7 @@ public class CharacterDataWrapperResponse implements Serializable {
 
 	private static final long serialVersionUID = -2548461049044162639L;
 
-	private Long id;
-
-	private int code;
+	private String code;
 
 	private String status;
 
@@ -22,19 +20,11 @@ public class CharacterDataWrapperResponse implements Serializable {
 
 	private String etag ;
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public int getCode() {
+	public String getCode() {
 		return code;
 	}
 
-	public void setCode(int code) {
+	public void setCode(String code) {
 		this.code = code;
 	}
 

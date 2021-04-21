@@ -1,22 +1,28 @@
 package br.com.marvel.domain.dto;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import java.io.Serializable;
 
-public class ImageResponse {
+public class ImageResponse implements Serializable {
 
-	@Id
-	@Column(name = "id", unique = true, nullable = false)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private static final long serialVersionUID = 3849710473704880109L;
 
-	//The directory path of to the image.,
-	@Column(name = "path")
 	private String path;
 
-	//The file extension for the image.
-	@Column(name = "extension")
 	private String extension;
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+	public String getExtension() {
+		return extension;
+	}
+
+	public void setExtension(String extension) {
+		this.extension = extension;
+	}
 }

@@ -1,31 +1,38 @@
 package br.com.marvel.domain.dto;
 
-import javax.persistence.Column;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import java.io.Serializable;
 
-import br.com.marvel.domain.model.ComicList;
+public class ComicSummaryResponse implements Serializable {
 
-public class ComicSummaryResponse {
+	private static final long serialVersionUID = -3581509098777343476L;
 
-	@Id
-	@Column(name = "id", unique = true, nullable = false)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
-	//The path to the individual comic resource.,
-	@Column(name = "resource_uri")
 	private String resourceUri;
 
-	//The canonical name of the comic.
-	@Column(name = "name")
 	private String name;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "comic_list_id")
-	private ComicList comicList;
+	private ComicListResponse comicListResponse;
+
+	public String getResourceUri() {
+		return resourceUri;
+	}
+
+	public void setResourceUri(String resourceUri) {
+		this.resourceUri = resourceUri;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public ComicListResponse getComicListResponse() {
+		return comicListResponse;
+	}
+
+	public void setComicListResponse(ComicListResponse comicListResponse) {
+		this.comicListResponse = comicListResponse;
+	}
 }

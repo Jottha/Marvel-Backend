@@ -1,40 +1,59 @@
 package br.com.marvel.domain.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+public class CharacterDataContainerResponse implements Serializable {
 
-import br.com.marvel.domain.model.Character;
+	private static final long serialVersionUID = 2200641663494109095L;
 
-public class CharacterDataContainerResponse {
+	private String offset;
 
-	@Id
-	@Column(name = "id", unique = true, nullable = false)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private String limit;
 
-	//The requested offset (number of skipped results) of the call.,
-	@Column(name = "offset")
-	private int offset;
+	private String total;
 
-	//The requested result limit.,
-	@Column(name = "limit")
-	private int limit;
+	private String count;
 
-	//The total number of resources available given the current filter set.,
-	@Column(name = "total")
-	private int total;
+	private List<CharacterResponse> listCharacterResultsResponse;
 
-	//The total number of results returned by this call.,
-	@Column(name = "count")
-	private int count;
+	public String getOffset() {
+		return offset;
+	}
 
-	//The list of characters returned by the call.
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "characterDataContainer")
-	private List<Character> listCharacterResults;
+	public void setOffset(String offset) {
+		this.offset = offset;
+	}
+
+	public String getLimit() {
+		return limit;
+	}
+
+	public void setLimit(String limit) {
+		this.limit = limit;
+	}
+
+	public String getTotal() {
+		return total;
+	}
+
+	public void setTotal(String total) {
+		this.total = total;
+	}
+
+	public String getCount() {
+		return count;
+	}
+
+	public void setCount(String count) {
+		this.count = count;
+	}
+
+	public List<CharacterResponse> getListCharacterResultsResponse() {
+		return listCharacterResultsResponse;
+	}
+
+	public void setListCharacterResultsResponse(List<CharacterResponse> listCharacterResultsResponse) {
+		this.listCharacterResultsResponse = listCharacterResultsResponse;
+	}
 }

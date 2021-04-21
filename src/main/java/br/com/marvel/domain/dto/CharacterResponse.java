@@ -3,12 +3,6 @@ package br.com.marvel.domain.dto;
 import java.io.Serializable;
 import java.util.List;
 
-import br.com.marvel.domain.model.CharacterDataContainer;
-import br.com.marvel.domain.model.ComicList;
-import br.com.marvel.domain.model.EventList;
-import br.com.marvel.domain.model.SeriesList;
-import br.com.marvel.domain.model.StoryList;
-
 public class CharacterResponse  implements Serializable {
 
 	private static final long serialVersionUID = 8734796729494974363L;
@@ -27,15 +21,15 @@ public class CharacterResponse  implements Serializable {
 
 	private ImageResponse imThumbnail;
 
-	private List<ComicList> listComicList;
+	private List<ComicListResponse> listComicListResponse;
 
-	private List<StoryList> listStoryList;
+	private List<StoryListResponse> listStoryListResponse;
 
-	private List<EventList> listEventList;
+	private List<EventListResponse> listEventListResponse;
 
-	private List<SeriesList> listSeriesList;
+	private List<SeriesListResponse> listSeriesListResponse;
 
-	private CharacterDataContainer characterDataContainer;
+	private CharacterDataContainerResponse characterDataContainerResponse;
 
 	public String getId() {
 		return id;
@@ -93,43 +87,43 @@ public class CharacterResponse  implements Serializable {
 		this.imThumbnail = imThumbnail;
 	}
 
-	public List<ComicList> getListComicList() {
-		return listComicList;
+	public List<ComicListResponse> getListComicListResponse() {
+		return listComicListResponse;
 	}
 
-	public void setListComicList(List<ComicList> listComicList) {
-		this.listComicList = listComicList;
+	public void setListComicListResponse(List<ComicListResponse> listComicListResponse) {
+		this.listComicListResponse = listComicListResponse;
 	}
 
-	public List<StoryList> getListStoryList() {
-		return listStoryList;
+	public List<StoryListResponse> getListStoryListResponse() {
+		return listStoryListResponse;
 	}
 
-	public void setListStoryList(List<StoryList> listStoryList) {
-		this.listStoryList = listStoryList;
+	public void setListStoryListResponse(List<StoryListResponse> listStoryListResponse) {
+		this.listStoryListResponse = listStoryListResponse;
 	}
 
-	public List<EventList> getListEventList() {
-		return listEventList;
+	public List<EventListResponse> getListEventListResponse() {
+		return listEventListResponse;
 	}
 
-	public void setListEventList(List<EventList> listEventList) {
-		this.listEventList = listEventList;
+	public void setListEventListResponse(List<EventListResponse> listEventListResponse) {
+		this.listEventListResponse = listEventListResponse;
 	}
 
-	public List<SeriesList> getListSeriesList() {
-		return listSeriesList;
+	public List<SeriesListResponse> getListSeriesListResponse() {
+		return listSeriesListResponse;
 	}
 
-	public void setListSeriesList(List<SeriesList> listSeriesList) {
-		this.listSeriesList = listSeriesList;
+	public void setListSeriesListResponse(List<SeriesListResponse> listSeriesListResponse) {
+		this.listSeriesListResponse = listSeriesListResponse;
 	}
 
-	public CharacterDataContainer getCharacterDataContainer() {
-		return characterDataContainer;
+	public CharacterDataContainerResponse getCharacterDataContainerResponse() {
+		return characterDataContainerResponse;
 	}
 
-	public void setCharacterDataContainer(CharacterDataContainer characterDataContainer) {
-		this.characterDataContainer = characterDataContainer;
+	public void setCharacterDataContainerResponse(CharacterDataContainerResponse characterDataContainerResponse) {
+		this.characterDataContainerResponse = characterDataContainerResponse;
 	}
 }

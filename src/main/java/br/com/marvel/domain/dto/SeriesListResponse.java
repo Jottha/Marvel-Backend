@@ -7,8 +7,6 @@ public class SeriesListResponse implements Serializable {
 
 	private static final long serialVersionUID = -373930138439891377L;
 
-	private Long id;
-
 	private String available; 
 
 	private String returned;
@@ -18,14 +16,6 @@ public class SeriesListResponse implements Serializable {
 	private List<SeriesSummaryResponse> listSeriesSummaryResponse;
 
 	private CharacterResponse characterResponseList;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getAvailable() {
 		return available;

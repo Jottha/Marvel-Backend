@@ -1,43 +1,59 @@
 package br.com.marvel.domain.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+public class EventListResponse implements Serializable {
 
-import br.com.marvel.domain.model.Character;
-import br.com.marvel.domain.model.EventSummary;
+	private static final long serialVersionUID = -888426133224072876L;
 
-public class EventListResponse {
+	private String available;
 
-	@Id
-	@Column(name = "id", unique = true, nullable = false)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private String returned;
 
-	//The number of total available events in this list. Will always be greater than or equal to the "returned" value.,
-	@Column(name = "total_available")
-	private int available;
-
-	//The number of events returned in this collection (up to 20).,
-	@Column(name = "returned")
-	private int returned;
-
-	//The path to the full list of events in this collection.,
-	@Column(name = "collection_uri")
 	private String collectionUri;
 
-	//The list of returned series in this collection.
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "eventList")
-	private List<EventSummary> listEventSummary;
+	private List<EventSummaryResponse> listEventSummaryResponse;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "character_list_id")
-	private Character characterList;
+	private CharacterResponse characterResponse;
+
+	public String getAvailable() {
+		return available;
+	}
+
+	public void setAvailable(String available) {
+		this.available = available;
+	}
+
+	public String getReturned() {
+		return returned;
+	}
+
+	public void setReturned(String returned) {
+		this.returned = returned;
+	}
+
+	public String getCollectionUri() {
+		return collectionUri;
+	}
+
+	public void setCollectionUri(String collectionUri) {
+		this.collectionUri = collectionUri;
+	}
+
+	public List<EventSummaryResponse> getListEventSummaryResponse() {
+		return listEventSummaryResponse;
+	}
+
+	public void setListEventSummaryResponse(List<EventSummaryResponse> listEventSummaryResponse) {
+		this.listEventSummaryResponse = listEventSummaryResponse;
+	}
+
+	public CharacterResponse getCharacterResponse() {
+		return characterResponse;
+	}
+
+	public void setCharacterResponse(CharacterResponse characterResponse) {
+		this.characterResponse = characterResponse;
+	}
 }

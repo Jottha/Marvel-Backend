@@ -7,9 +7,9 @@ public class ComicListResponse implements Serializable {
 
 	private static final long serialVersionUID = 4522599910640613359L;
 
-	private int available;
+	private String available;
 
-	private int returned;
+	private String returned;
 
 	private String collectionUri;
 
@@ -17,19 +17,19 @@ public class ComicListResponse implements Serializable {
 
 	private CharacterResponse characterResponse;
 
-	public int getAvailable() {
+	public String getAvailable() {
 		return available;
 	}
 
-	public void setAvailable(int available) {
+	public void setAvailable(String available) {
 		this.available = available;
 	}
 
-	public int getReturned() {
+	public String getReturned() {
 		return returned;
 	}
 
-	public void setReturned(int returned) {
+	public void setReturned(String returned) {
 		this.returned = returned;
 	}
 
