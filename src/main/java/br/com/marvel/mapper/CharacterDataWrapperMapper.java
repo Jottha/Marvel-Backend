@@ -18,9 +18,18 @@ public class CharacterDataWrapperMapper {
 		return characterDataWrapperResponseList;
 	}
 
-	public static CharacterDataWrapperResponse createCharacterDataWrapperResponse(CharacterDataWrapper characterDataWrapper ) {
+	public static CharacterDataWrapperResponse createCharacterDataWrapperResponse(CharacterDataWrapper characterDataWrapper) {
 		CharacterDataWrapperResponse characterDataWrapperResponse = new CharacterDataWrapperResponse ();
-		
+
+		characterDataWrapperResponse.setCode(String.valueOf(characterDataWrapper.getCode()));
+		characterDataWrapperResponse.setStatus(characterDataWrapper.getStatus());
+		characterDataWrapperResponse.setCopyRight(characterDataWrapper.getCopyRight());
+		characterDataWrapperResponse.setAttributionText(characterDataWrapper.getAttributionText());
+		characterDataWrapperResponse.setAttributionHtml(characterDataWrapper.getAttributionHtml());
+		characterDataWrapperResponse.setCharacterDataContainerResponse(
+				CharacterDataContainerMapper.createCharacterDataContainerResponse(characterDataWrapper.getCharacterDataContainer()));
+		characterDataWrapperResponse.setEtag(characterDataWrapper.getEtag());
+
 		return characterDataWrapperResponse;
 	}
 }

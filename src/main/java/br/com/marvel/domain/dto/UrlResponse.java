@@ -6,21 +6,11 @@ public class UrlResponse implements Serializable {
 
 	private static final long serialVersionUID = 6243635481213103580L;
 
-	private String id;
-
 	private String type;
 
 	private String url;
 
 	private CharacterResponse characterResponseList;
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
 
 	public String getType() {
 		return type;
