@@ -6,14 +6,20 @@ import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+@Entity
+@Table(name = "character")
 public class Character implements Serializable {
 
 	private static final long serialVersionUID = -8500524907072604640L;
@@ -64,6 +70,10 @@ public class Character implements Serializable {
 	//A resource list of series in which this character appears.
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "characterList")
 	private List<SeriesList> listSeriesList;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "character_data_container_id")
+	private CharacterDataContainer characterDataContainer;
 
 	public Long getId() {
 		return id;
@@ -151,6 +161,14 @@ public class Character implements Serializable {
 
 	public void setListSeriesList(List<SeriesList> listSeriesList) {
 		this.listSeriesList = listSeriesList;
+	}
+
+	public CharacterDataContainer getCharacterDataContainer() {
+		return characterDataContainer;
+	}
+
+	public void setCharacterDataContainer(CharacterDataContainer characterDataContainer) {
+		this.characterDataContainer = characterDataContainer;
 	}
 
 	@Override
