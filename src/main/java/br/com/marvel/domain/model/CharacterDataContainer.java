@@ -1,4 +1,4 @@
-package br.com.marvel.model;
+package br.com.marvel.domain.model;
 
 import java.io.Serializable;
 import java.util.List;
@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "character_data_container")
+@Table(name = "tb_character_data_container")
 public class CharacterDataContainer implements Serializable {
 
 	private static final long serialVersionUID = 6468972779438894291L;
@@ -41,7 +41,7 @@ public class CharacterDataContainer implements Serializable {
 	private int count;
 
 	//The list of characters returned by the call.
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "storyList")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "characterDataContainer")
 	private List<Character> listCharacterResults;
 
 	public Long getId() {

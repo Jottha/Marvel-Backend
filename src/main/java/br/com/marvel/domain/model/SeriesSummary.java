@@ -1,4 +1,4 @@
-package br.com.marvel.model;
+package br.com.marvel.domain.model;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "series_summary")
+@Table(name = "tb_series_summary")
 public class SeriesSummary implements Serializable {
 	
 	private static final long serialVersionUID = 4704218713195213100L;

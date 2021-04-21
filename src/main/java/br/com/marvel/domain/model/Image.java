@@ -1,4 +1,4 @@
-package br.com.marvel.model;
+package br.com.marvel.domain.model;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "image")
+@Table(name = "tb_image")
 public class Image implements Serializable {
 
 	private static final long serialVersionUID = 6261388897713237678L;

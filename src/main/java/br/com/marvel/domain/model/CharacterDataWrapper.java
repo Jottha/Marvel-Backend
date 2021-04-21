@@ -1,4 +1,4 @@
-package br.com.marvel.model;
+package br.com.marvel.domain.model;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "character_data_wrapper")
+@Table(name = "tb_character_data_wrapper")
 public class CharacterDataWrapper implements Serializable {
 
 	private static final long serialVersionUID = 5559356123357751604L;

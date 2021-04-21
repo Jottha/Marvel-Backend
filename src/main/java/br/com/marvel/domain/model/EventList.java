@@ -1,4 +1,4 @@
-package br.com.marvel.model;
+package br.com.marvel.domain.model;
 
 import java.io.Serializable;
 import java.util.List;
@@ -16,33 +16,31 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "series")
-public class SeriesList implements Serializable {
+@Table(name = "tb_event_list")
+public class EventList implements Serializable {
 
-	private static final long serialVersionUID = 6927078413440504928L;
+	private static final long serialVersionUID = 4253080937560418455L;
 
 	@Id
 	@Column(name = "id", unique = true, nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	//The number of total available series in this list.
-	// Will always be greater than or equal to the "returned" value.,
+	//The number of total available events in this list. Will always be greater than or equal to the "returned" value.,
 	@Column(name = "total_available")
-	private int available; 
+	private int available;
 
-	//The number of series returned in this collection (up to 20).,
+	//The number of events returned in this collection (up to 20).,
 	@Column(name = "returned")
 	private int returned;
 
-	//The path to the full list of series in this collection.,
+	//The path to the full list of events in this collection.,
 	@Column(name = "collection_uri")
 	private String collectionUri;
 
-	//items (Array[SeriesSummary], optional): 
 	//The list of returned series in this collection.
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "seriesList")
-	private List<SeriesSummary> listSeriesSummary;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "eventList")
+	private List<EventSummary> listEventSummary;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "character_list_id")
@@ -80,14 +78,14 @@ public class SeriesList implements Serializable {
 		this.collectionUri = collectionUri;
 	}
 
-	public List<SeriesSummary> getListSeriesSummary() {
-		return listSeriesSummary;
+	public List<EventSummary> getListEventSummary() {
+		return listEventSummary;
 	}
 
-	public void setListSeriesSummary(List<SeriesSummary> listSeriesSummary) {
-		this.listSeriesSummary = listSeriesSummary;
+	public void setListEventSummary(List<EventSummary> listEventSummary) {
+		this.listEventSummary = listEventSummary;
 	}
-	
+
 	public Character getCharacterList() {
 		return characterList;
 	}
@@ -106,10 +104,10 @@ public class SeriesList implements Serializable {
 		if (this == obj) {
 			return true;
 		}
-		if (!(obj instanceof SeriesList)) {
+		if (!(obj instanceof EventList)) {
 			return false;
 		}
-		SeriesList other = (SeriesList) obj;
+		EventList other = (EventList) obj;
 		return Objects.equals(id, other.id);
 	}
 }

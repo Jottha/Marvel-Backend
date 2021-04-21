@@ -1,4 +1,4 @@
-package br.com.marvel.model;
+package br.com.marvel.domain.model;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -19,7 +19,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "character")
+@Table(name = "tb_character")
 public class Character implements Serializable {
 
 	private static final long serialVersionUID = -8500524907072604640L;

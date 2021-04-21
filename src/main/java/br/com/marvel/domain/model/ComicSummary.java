@@ -1,4 +1,4 @@
-package br.com.marvel.model;
+package br.com.marvel.domain.model;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -14,27 +14,27 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "event_summary")
-public class EventSummary implements Serializable {
+@Table(name = "tb_comic_summary")
+public class ComicSummary implements Serializable {
 
-	private static final long serialVersionUID = 4972610934850365689L;
+	private static final long serialVersionUID = -2557025930143185413L;
 
 	@Id
 	@Column(name = "id", unique = true, nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	//The path to the individual event resource.,
+	//The path to the individual comic resource.,
 	@Column(name = "resource_uri")
 	private String resourceUri;
 
-	//The name of the event.
+	//The canonical name of the comic.
 	@Column(name = "name")
 	private String name;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "event_list_id")
-	private EventList eventList;
+	@JoinColumn(name = "comic_list_id")
+	private ComicList comicList;
 
 	public Long getId() {
 		return id;
@@ -60,12 +60,12 @@ public class EventSummary implements Serializable {
 		this.name = name;
 	}
 
-	public EventList getEventList() {
-		return eventList;
+	public ComicList getComicList() {
+		return comicList;
 	}
 
-	public void setEventList(EventList eventList) {
-		this.eventList = eventList;
+	public void setComicList(ComicList comicList) {
+		this.comicList = comicList;
 	}
 
 	@Override
@@ -78,10 +78,10 @@ public class EventSummary implements Serializable {
 		if (this == obj) {
 			return true;
 		}
-		if (!(obj instanceof EventSummary)) {
+		if (!(obj instanceof ComicSummary)) {
 			return false;
 		}
-		EventSummary other = (EventSummary) obj;
+		ComicSummary other = (ComicSummary) obj;
 		return Objects.equals(id, other.id);
 	}
 }
