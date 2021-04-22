@@ -8,5 +8,5 @@ import br.com.marvel.domain.model.ComicList;
 
 public interface ComicListRepository extends JpaRepository<ComicList, Long>, ComicListRepositoryCustom {
 
-	List<ComicList> findByCharacter(Long characterId);
+	List<ComicList> findAllByCharacter(Long characterId);
 }

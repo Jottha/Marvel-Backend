@@ -8,5 +8,5 @@ import br.com.marvel.domain.model.EventList;
 
 public interface EventListRepository extends JpaRepository<EventList, Long> {
 
-	List<EventList> findByCharacter(Long characterId);
+	List<EventList> findAllByCharacter(Long characterId);
 }
