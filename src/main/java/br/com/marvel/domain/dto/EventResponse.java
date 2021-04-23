@@ -3,7 +3,7 @@ package br.com.marvel.domain.dto;
 import java.io.Serializable;
 import java.util.List;
 
-public class EventListResponse implements Serializable {
+public class EventResponse implements Serializable {
 
 	private static final long serialVersionUID = -888426133224072876L;
 

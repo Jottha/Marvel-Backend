@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.marvel.domain.model.SeriesList;
+import br.com.marvel.domain.model.Series;
 
-public interface SeriesListRepository extends JpaRepository<SeriesList, Long> {
+public interface SeriesListRepository extends JpaRepository<Series, Long> {
 
-	List<SeriesList> findAllByCharacter(Long characterId);
+	List<Series> findAllByCharacter(Long characterId);
 }

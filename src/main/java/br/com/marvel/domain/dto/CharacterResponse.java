@@ -21,13 +21,13 @@ public class CharacterResponse  implements Serializable {
 
 	private ImageResponse imThumbnail;
 
-	private List<ComicListResponse> listComicListResponse;
+	private List<ComicResponse> listComicListResponse;
 
-	private List<StoryListResponse> listStoryListResponse;
+	private List<StoryResponse> listStoryListResponse;
 
-	private List<EventListResponse> listEventListResponse;
+	private List<EventResponse> listEventListResponse;
 
-	private List<SeriesListResponse> listSeriesListResponse;
+	private List<SeriesResponse> listSeriesListResponse;
 
 	private CharacterDataContainerResponse characterDataContainerResponse;
 
@@ -87,35 +87,35 @@ public class CharacterResponse  implements Serializable {
 		this.imThumbnail = imThumbnail;
 	}
 
-	public List<ComicListResponse> getListComicListResponse() {
+	public List<ComicResponse> getListComicListResponse() {
 		return listComicListResponse;
 	}
 
-	public void setListComicListResponse(List<ComicListResponse> listComicListResponse) {
+	public void setListComicListResponse(List<ComicResponse> listComicListResponse) {
 		this.listComicListResponse = listComicListResponse;
 	}
 
-	public List<StoryListResponse> getListStoryListResponse() {
+	public List<StoryResponse> getListStoryListResponse() {
 		return listStoryListResponse;
 	}
 
-	public void setListStoryListResponse(List<StoryListResponse> listStoryListResponse) {
+	public void setListStoryListResponse(List<StoryResponse> listStoryListResponse) {
 		this.listStoryListResponse = listStoryListResponse;
 	}
 
-	public List<EventListResponse> getListEventListResponse() {
+	public List<EventResponse> getListEventListResponse() {
 		return listEventListResponse;
 	}
 
-	public void setListEventListResponse(List<EventListResponse> listEventListResponse) {
+	public void setListEventListResponse(List<EventResponse> listEventListResponse) {
 		this.listEventListResponse = listEventListResponse;
 	}
 
-	public List<SeriesListResponse> getListSeriesListResponse() {
+	public List<SeriesResponse> getListSeriesListResponse() {
 		return listSeriesListResponse;
 	}
 
-	public void setListSeriesListResponse(List<SeriesListResponse> listSeriesListResponse) {
+	public void setListSeriesListResponse(List<SeriesResponse> listSeriesListResponse) {
 		this.listSeriesListResponse = listSeriesListResponse;
 	}
 

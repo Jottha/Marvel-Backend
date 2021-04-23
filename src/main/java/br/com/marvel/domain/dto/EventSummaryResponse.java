@@ -10,7 +10,7 @@ public class EventSummaryResponse implements Serializable {
 
 	private String name;
 
-	private EventListResponse eventListResponse;
+	private EventResponse eventListResponse;
 
 	public String getResourceUri() {
 		return resourceUri;
@@ -28,11 +28,11 @@ public class EventSummaryResponse implements Serializable {
 		this.name = name;
 	}
 
-	public EventListResponse getEventListResponse() {
+	public EventResponse getEventListResponse() {
 		return eventListResponse;
 	}
 
-	public void setEventListResponse(EventListResponse eventListResponse) {
+	public void setEventListResponse(EventResponse eventListResponse) {
 		this.eventListResponse = eventListResponse;
 	}
 }

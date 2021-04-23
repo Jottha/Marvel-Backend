@@ -34,8 +34,8 @@ public class SeriesSummary implements Serializable {
 
 	//The canonical name of the series.
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "series_list_id")
-	private SeriesList seriesList;
+	@JoinColumn(name = "series_id")
+	private Series series;
 
 	public Long getId() {
 		return id;
@@ -61,12 +61,12 @@ public class SeriesSummary implements Serializable {
 		this.name = name;
 	}
 
-	public SeriesList getSeriesList() {
-		return seriesList;
+	public Series getSeries() {
+		return series;
 	}
 
-	public void setSeriesList(SeriesList seriesList) {
-		this.seriesList = seriesList;
+	public void setSeries(Series series) {
+		this.series = series;
 	}
 
 	@Override

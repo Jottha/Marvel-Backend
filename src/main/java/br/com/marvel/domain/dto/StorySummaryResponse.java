@@ -12,7 +12,7 @@ public class StorySummaryResponse implements Serializable {
 
 	private String type;
 
-	private StoryListResponse StoryListResponse;
+	private StoryResponse StoryListResponse;
 
 	private CharacterResponse characterResponseList;
 
@@ -40,11 +40,11 @@ public class StorySummaryResponse implements Serializable {
 		this.type = type;
 	}
 
-	public StoryListResponse getStoryListResponse() {
+	public StoryResponse getStoryListResponse() {
 		return StoryListResponse;
 	}
 
-	public void setStoryListResponse(StoryListResponse storyListResponse) {
+	public void setStoryListResponse(StoryResponse storyListResponse) {
 		StoryListResponse = storyListResponse;
 	}
 

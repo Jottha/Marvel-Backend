@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.marvel.domain.model.EventList;
+import br.com.marvel.domain.model.Event;
 
-public interface EventListRepository extends JpaRepository<EventList, Long> {
+public interface EventListRepository extends JpaRepository<Event, Long> {
 
-	List<EventList> findAllByCharacter(Long characterId);
+	List<Event> findAllByCharacter(Long characterId);
 }

@@ -33,8 +33,8 @@ public class ComicSummary implements Serializable {
 	private String name;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "comic_list_id")
-	private ComicList comicList;
+	@JoinColumn(name = "comic_id")
+	private Comic comic;
 
 	public Long getId() {
 		return id;
@@ -60,12 +60,12 @@ public class ComicSummary implements Serializable {
 		this.name = name;
 	}
 
-	public ComicList getComicList() {
-		return comicList;
+	public Comic getComic() {
+		return comic;
 	}
 
-	public void setComicList(ComicList comicList) {
-		this.comicList = comicList;
+	public void setComic(Comic comic) {
+		this.comic = comic;
 	}
 
 	@Override

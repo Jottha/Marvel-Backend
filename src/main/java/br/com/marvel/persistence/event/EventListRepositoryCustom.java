@@ -2,9 +2,9 @@ package br.com.marvel.persistence.event;
 
 import java.util.List;
 
-import br.com.marvel.domain.model.EventList;
+import br.com.marvel.domain.model.Event;
 
 public interface EventListRepositoryCustom {
 
-	List<EventList> listEventByIdCharacterDataWrapper(Long idCharacter);
+	List<Event> listEventByIdCharacterDataWrapper(Long idCharacter);
 }

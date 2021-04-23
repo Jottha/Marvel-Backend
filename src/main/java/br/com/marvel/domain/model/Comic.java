@@ -16,35 +16,35 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_event_list")
-public class EventList implements Serializable {
+@Table(name = "tb_comic_list")
+public class Comic implements Serializable {
 
-	private static final long serialVersionUID = 4253080937560418455L;
+	private static final long serialVersionUID = -2264303531840109055L;
 
 	@Id
 	@Column(name = "id", unique = true, nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	//The number of total available events in this list. Will always be greater than or equal to the "returned" value.,
+	//The number of total available issues in this list. Will always be greater than or equal to the "returned" value.,
 	@Column(name = "total_available")
 	private int available;
 
-	//The number of events returned in this collection (up to 20).,
+	//The number of issues returned in this collection (up to 20).,
 	@Column(name = "returned")
 	private int returned;
 
-	//The path to the full list of events in this collection.,
+	//The path to the full list of issues in this collection.,
 	@Column(name = "collection_uri")
 	private String collectionUri;
 
-	//The list of returned series in this collection.
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "eventList")
-	private List<EventSummary> listEventSummary;
+	//The list of returned issues in this collection.
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "comic")
+	private List<ComicSummary> listComicSummary;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "character_list_id")
-	private Character characterList;
+	@JoinColumn(name = "character_id")
+	private Character character;
 
 	public Long getId() {
 		return id;
@@ -78,20 +78,20 @@ public class EventList implements Serializable {
 		this.collectionUri = collectionUri;
 	}
 
-	public List<EventSummary> getListEventSummary() {
-		return listEventSummary;
+	public List<ComicSummary> getListComicSummary() {
+		return listComicSummary;
 	}
 
-	public void setListEventSummary(List<EventSummary> listEventSummary) {
-		this.listEventSummary = listEventSummary;
+	public void setListComicSummary(List<ComicSummary> listComicSummary) {
+		this.listComicSummary = listComicSummary;
 	}
 
-	public Character getCharacterList() {
-		return characterList;
+	public Character getCharacter() {
+		return character;
 	}
 
-	public void setCharacterList(Character characterList) {
-		this.characterList = characterList;
+	public void setCharacter(Character character) {
+		this.character = character;
 	}
 
 	@Override
@@ -104,10 +104,10 @@ public class EventList implements Serializable {
 		if (this == obj) {
 			return true;
 		}
-		if (!(obj instanceof EventList)) {
+		if (!(obj instanceof Comic)) {
 			return false;
 		}
-		EventList other = (EventList) obj;
+		Comic other = (Comic) obj;
 		return Objects.equals(id, other.id);
 	}
 }

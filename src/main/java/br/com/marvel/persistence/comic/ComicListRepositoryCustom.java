@@ -2,9 +2,9 @@ package br.com.marvel.persistence.comic;
 
 import java.util.List;
 
-import br.com.marvel.domain.model.ComicList;
+import br.com.marvel.domain.model.Comic;
 
 public interface ComicListRepositoryCustom {
 
-	List<ComicList> listComicByIdCharacterDataWrapper(Long idCharacter);
+	List<Comic> listComicByIdCharacterDataWrapper(Long idCharacter);
 }

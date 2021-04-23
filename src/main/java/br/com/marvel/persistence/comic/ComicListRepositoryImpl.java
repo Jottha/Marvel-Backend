@@ -9,8 +9,8 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import br.com.marvel.domain.model.ComicList;
-import br.com.marvel.domain.model.ComicList_;
+import br.com.marvel.domain.model.Comic;
+import br.com.marvel.domain.model.Comic_;
 
 public class ComicListRepositoryImpl implements ComicListRepositoryCustom {
 
@@ -18,12 +18,12 @@ public class ComicListRepositoryImpl implements ComicListRepositoryCustom {
 	private EntityManager em;
 
 	@Override
-	public List<ComicList> listComicByIdCharacterDataWrapper(Long idCharacter) {
+	public List<Comic> listComicByIdCharacterDataWrapper(Long idCharacter) {
 		CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
-		CriteriaQuery<ComicList> criteriaQuery = criteriaBuilder.createQuery(ComicList.class);
-		Root<ComicList> root = criteriaQuery.from(ComicList.class);
+		CriteriaQuery<Comic> criteriaQuery = criteriaBuilder.createQuery(Comic.class);
+		Root<Comic> root = criteriaQuery.from(Comic.class);
 
-		Predicate idCharacterRestrinction = criteriaBuilder.equal(root.join(ComicList_.character), idCharacter);
+		Predicate idCharacterRestrinction = criteriaBuilder.equal(root.join(Comic_.character), idCharacter);
 
 		criteriaQuery.select(root).where(idCharacterRestrinction);
 

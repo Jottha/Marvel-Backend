@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.marvel.domain.dto.CharacterDataWrapperResponse;
-import br.com.marvel.domain.dto.ComicListResponse;
-import br.com.marvel.domain.dto.EventListResponse;
-import br.com.marvel.domain.dto.SeriesListResponse;
-import br.com.marvel.domain.dto.StoryListResponse;
+import br.com.marvel.domain.dto.ComicResponse;
+import br.com.marvel.domain.dto.EventResponse;
+import br.com.marvel.domain.dto.SeriesResponse;
+import br.com.marvel.domain.dto.StoryResponse;
 import br.com.marvel.mapper.CharacterDataWrapperMapper;
 import br.com.marvel.mapper.ComicListMapper;
 import br.com.marvel.mapper.EventListMapper;
@@ -52,22 +52,22 @@ public class CharacterDataWrapperServiceImpl implements CharacterDataWrapperServ
 	}
 
 	@Override
-	public List<ComicListResponse> listComicListResponseByIdCharacterDataWrapper(Long id) {
+	public List<ComicResponse> listComicListResponseByIdCharacterDataWrapper(Long id) {
 		return ComicListMapper.createComicListResponseList(this.comicListRepository.findAllByCharacter(id));
 	}
 
 	@Override
-	public List<EventListResponse> listEventListResponseByIdCharacterDataWrapper(Long id) {
+	public List<EventResponse> listEventListResponseByIdCharacterDataWrapper(Long id) {
 		return EventListMapper.createEventListResponseList(this.eventListRepository.findAllByCharacter(id));
 	}
 
 	@Override
-	public List<SeriesListResponse> listSeriesListResponseByIdCharacterDataWrapper(Long id) {
+	public List<SeriesResponse> listSeriesListResponseByIdCharacterDataWrapper(Long id) {
 		return SeriesListMapper.createSeriesListResponseList(this.seriesListRepository.findAllByCharacter(id));
 	}
 
 	@Override
-	public List<StoryListResponse> listStoryListResponseByIdCharacterDataWrapper(Long id) {
+	public List<StoryResponse> listStoryListResponseByIdCharacterDataWrapper(Long id) {
 		return StoryListMapper.createStoryListResponseList(this.storyListRepository.findAllByCharacter(id));
 	}
 }
