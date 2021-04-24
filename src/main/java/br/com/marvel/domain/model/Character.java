@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -52,7 +53,8 @@ public class Character implements Serializable {
 	private List<Url> listUrl;
 
 	//The representative image for this character.,
-	@Column(name = "im_thumbnail")
+	@OneToOne
+	@JoinColumn(name = "im_thumbnail")
 	private Image imThumbnail;
 
 	//A resource list containing comics which feature this character.,

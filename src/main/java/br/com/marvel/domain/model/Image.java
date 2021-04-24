@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -28,6 +29,9 @@ public class Image implements Serializable {
 	//The file extension for the image.
 	@Column(name = "extension")
 	private String extension;
+
+	@OneToOne(mappedBy = "imThumbnail")
+	private Character character;
 
 	public Long getId() {
 		return id;
@@ -51,6 +55,14 @@ public class Image implements Serializable {
 
 	public void setExtension(String extension) {
 		this.extension = extension;
+	}
+
+	public Character getCharacter() {
+		return character;
+	}
+
+	public void setCharacter(Character character) {
+		this.character = character;
 	}
 
 	@Override
