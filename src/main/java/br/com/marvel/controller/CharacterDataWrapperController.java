@@ -42,7 +42,7 @@ public class CharacterDataWrapperController {
 			@RequestParam(name = "pageSize", required = false) Integer pageSize
 			) {
 		FilterRequest<CharacterDataWrapperRequest> characterDataWrapperRequest = new FilterRequest<CharacterDataWrapperRequest>(name, nameStartsWith, modifiedSince, comics, series, events, stories);
-		PaginationRequest pagination = new PaginationRequest(page, pageSize, sortByAttribute);
+		PaginationRequest pagination = new PaginationRequest(page, pageSize);
 		characterDataWrapperRequest.setData(new CharacterDataWrapperRequest(name, nameStartsWith, modifiedSince, comics, series, events, stories, sortByAttribute));
 			
 		return this.characterDataWrapperService.listCharacterDataWrapperResponse(characterDataWrapperRequest, pagination);

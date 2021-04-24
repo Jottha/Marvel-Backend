@@ -10,16 +10,14 @@ public class PaginationRequest implements Serializable {
 	private static final long serialVersionUID = 6349640742026607058L;
 
 	private Pageable page;
-	private String sortByAttribute;
 	private Boolean ascendingOrder;
 
-	public PaginationRequest(Integer page, Integer pageSize, String sortByAttribute) {
+	public PaginationRequest(Integer page, Integer pageSize) {
 		if (page != null && pageSize != null) {
 			this.page = PageRequest.of(page, pageSize);
 		} else {
 			this.page = PageRequest.of(0, Integer.MAX_VALUE);
 		}
-		this.sortByAttribute = sortByAttribute;
 	}
 
 	public Pageable getPage() {
@@ -28,14 +26,6 @@ public class PaginationRequest implements Serializable {
 
 	public void setPage(Pageable page) {
 		this.page = page;
-	}
-
-	public String getSortByAttribute() {
-		return sortByAttribute;
-	}
-
-	public void setSortByAttribute(String sortByAttribute) {
-		this.sortByAttribute = sortByAttribute;
 	}
 
 	public Boolean getAscendingOrder() {

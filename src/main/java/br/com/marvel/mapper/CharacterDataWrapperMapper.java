@@ -3,12 +3,14 @@ package br.com.marvel.mapper;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+
 import br.com.marvel.domain.dto.CharacterDataWrapperResponse;
 import br.com.marvel.domain.model.CharacterDataWrapper;
 
 public class CharacterDataWrapperMapper {
 
-	public static List<CharacterDataWrapperResponse> createCharacterDataWrapperResponseList(List<CharacterDataWrapper> listCharacterDataWrapper) {
+	public static List<CharacterDataWrapperResponse> createCharacterDataWrapperResponseList(Page<CharacterDataWrapper> listCharacterDataWrapper) {
 		List<CharacterDataWrapperResponse> characterDataWrapperResponseList = new ArrayList<CharacterDataWrapperResponse>();
 
 		listCharacterDataWrapper.forEach(characterDataWrapper -> {
