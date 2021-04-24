@@ -3,13 +3,13 @@ package br.com.marvel.mapper;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.marvel.domain.dto.ComicListResponse;
-import br.com.marvel.domain.model.ComicList;
+import br.com.marvel.domain.dto.ComicResponse;
+import br.com.marvel.domain.model.Comic;
 
 public class ComicListMapper {
 
-	public static List<ComicListResponse> createComicListResponseList(List<ComicList> listComicList) {
-		List<ComicListResponse> comicListResponseList = new ArrayList<ComicListResponse>();
+	public static List<ComicResponse> createComicListResponseList(List<Comic> listComicList) {
+		List<ComicResponse> comicListResponseList = new ArrayList<ComicResponse>();
 
 		listComicList.forEach(comicList -> {
 			comicListResponseList.add(createComicListResponse(comicList));
@@ -18,8 +18,8 @@ public class ComicListMapper {
 		return comicListResponseList;
 	}
 
-	public static ComicListResponse createComicListResponse(ComicList comicList) {
-		ComicListResponse comicListResponse = new ComicListResponse ();
+	public static ComicResponse createComicListResponse(Comic comicList) {
+		ComicResponse comicListResponse = new ComicResponse ();
 
 		comicListResponse.setAvailable(String.valueOf(comicList.getAvailable()));
 		comicListResponse.setReturned(String.valueOf(comicList.getReturned()));

@@ -33,8 +33,8 @@ public class Url implements Serializable {
 	private String url;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "character_list_id")
-	private Character characterList;
+	@JoinColumn(name = "character_id")
+	private Character character;
 
 	public Long getId() {
 		return id;
@@ -65,12 +65,12 @@ public class Url implements Serializable {
 		return Objects.hash(id);
 	}
 
-	public Character getCharacterList() {
-		return characterList;
+	public Character getCharacter() {
+		return character;
 	}
 
-	public void setCharacterList(Character characterList) {
-		this.characterList = characterList;
+	public void setCharacter(Character character) {
+		this.character = character;
 	}
 
 	@Override

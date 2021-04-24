@@ -3,13 +3,13 @@ package br.com.marvel.mapper;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.marvel.domain.dto.StoryListResponse;
-import br.com.marvel.domain.model.StoryList;
+import br.com.marvel.domain.dto.StoryResponse;
+import br.com.marvel.domain.model.Story;
 
 public class StoryListMapper {
 
-	public static List<StoryListResponse> createStoryListResponseList(List<StoryList> listStoryList) {
-		List<StoryListResponse> storyListResponseList = new ArrayList<StoryListResponse>();
+	public static List<StoryResponse> createStoryListResponseList(List<Story> listStoryList) {
+		List<StoryResponse> storyListResponseList = new ArrayList<StoryResponse>();
 
 		listStoryList.forEach(storyList -> {
 			storyListResponseList.add(createStoryListResponse(storyList));
@@ -18,8 +18,8 @@ public class StoryListMapper {
 		return storyListResponseList;
 	}
 
-	public static StoryListResponse createStoryListResponse(StoryList storyList) {
-		StoryListResponse storyListResponse = new StoryListResponse ();
+	public static StoryResponse createStoryListResponse(Story storyList) {
+		StoryResponse storyListResponse = new StoryResponse ();
 
 		storyListResponse.setAvailable(String.valueOf(storyList.getAvailable()));
 		storyListResponse.setReturned(String.valueOf(storyList.getReturned()));

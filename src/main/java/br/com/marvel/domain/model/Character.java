@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -48,28 +49,29 @@ public class Character implements Serializable {
 	private String resourceUri;
 
 	//A set of public web site URLs for the resource.,
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "characterList")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "character")
 	private List<Url> listUrl;
 
 	//The representative image for this character.,
-	@Column(name = "im_thumbnail")
+	@OneToOne
+	@JoinColumn(name = "im_thumbnail")
 	private Image imThumbnail;
 
 	//A resource list containing comics which feature this character.,
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "characterList")
-	private List<ComicList> listComicList;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "character")
+	private List<Comic> listComic;
 
 	//A resource list of stories in which this character appears.,
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "characterList")
-	private List<StoryList> listStoryList;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "character")
+	private List<Story> listStory;
 
 	//A resource list of events in which this character appears.,
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "characterList")
-	private List<EventList> listEventList;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "character")
+	private List<Event> listEvent;
 
 	//A resource list of series in which this character appears.
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "characterList")
-	private List<SeriesList> listSeriesList;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "character")
+	private List<Series> listSeries;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "character_data_container_id")
@@ -131,36 +133,36 @@ public class Character implements Serializable {
 		this.imThumbnail = imThumbnail;
 	}
 
-	public List<ComicList> getListComicList() {
-		return listComicList;
+	public List<Comic> getListComic() {
+		return listComic;
 	}
 
-	public void setListComicList(List<ComicList> listComicList) {
-		this.listComicList = listComicList;
+	public void setListComic(List<Comic> listComic) {
+		this.listComic = listComic;
 	}
 
-	public List<StoryList> getListStoryList() {
-		return listStoryList;
+	public List<Story> getListStory() {
+		return listStory;
 	}
 
-	public void setListStoryList(List<StoryList> listStoryList) {
-		this.listStoryList = listStoryList;
+	public void setListStory(List<Story> listStory) {
+		this.listStory = listStory;
 	}
 
-	public List<EventList> getListEventList() {
-		return listEventList;
+	public List<Event> getListEvent() {
+		return listEvent;
 	}
 
-	public void setListEventList(List<EventList> listEventList) {
-		this.listEventList = listEventList;
+	public void setListEvent(List<Event> listEvent) {
+		this.listEvent = listEvent;
 	}
 
-	public List<SeriesList> getListSeriesList() {
-		return listSeriesList;
+	public List<Series> getListSeries() {
+		return listSeries;
 	}
 
-	public void setListSeriesList(List<SeriesList> listSeriesList) {
-		this.listSeriesList = listSeriesList;
+	public void setListSeries(List<Series> listSeries) {
+		this.listSeries = listSeries;
 	}
 
 	public CharacterDataContainer getCharacterDataContainer() {

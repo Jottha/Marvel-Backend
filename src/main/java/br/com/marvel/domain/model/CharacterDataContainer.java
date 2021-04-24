@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -26,62 +27,65 @@ public class CharacterDataContainer implements Serializable {
 
 	//The requested offset (number of skipped results) of the call.,
 	@Column(name = "offset")
-	private int offset;
+	private Long offset;
 
 	//The requested result limit.,
 	@Column(name = "limit")
-	private int limit;
+	private Long limit;
 
 	//The total number of resources available given the current filter set.,
 	@Column(name = "total")
-	private int total;
+	private Long total;
 
 	//The total number of results returned by this call.,
 	@Column(name = "count")
-	private int count;
+	private Long count;
 
 	//The list of characters returned by the call.
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "characterDataContainer")
 	private List<Character> listCharacterResults;
 
+	@OneToOne(mappedBy = "characterDataContainer")
+	private CharacterDataWrapper characterDataWrapper;
+
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public int getOffset() {
+	public Long getOffset() {
 		return offset;
 	}
 
-	public void setOffset(int offset) {
+	public void setOffset(Long offset) {
 		this.offset = offset;
 	}
 
-	public int getLimit() {
+	public Long getLimit() {
 		return limit;
 	}
 
-	public void setLimit(int limit) {
+	public void setLimit(Long limit) {
 		this.limit = limit;
 	}
 
-	public int getTotal() {
+	public Long getTotal() {
 		return total;
 	}
 
-	public void setTotal(int total) {
+	public void setTotal(Long total) {
 		this.total = total;
 	}
 
-	public int getCount() {
+	public Long getCount() {
 		return count;
 	}
 
-	public void setCount(int count) {
+	public void setCount(Long count) {
 		this.count = count;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public List<Character> getListCharacterResults() {
@@ -90,6 +94,14 @@ public class CharacterDataContainer implements Serializable {
 
 	public void setListCharacterResults(List<Character> listCharacterResults) {
 		this.listCharacterResults = listCharacterResults;
+	}
+	
+	public CharacterDataWrapper getCharacterDataWrapper() {
+		return characterDataWrapper;
+	}
+
+	public void setCharacterDataWrapper(CharacterDataWrapper characterDataWrapper) {
+		this.characterDataWrapper = characterDataWrapper;
 	}
 
 	@Override

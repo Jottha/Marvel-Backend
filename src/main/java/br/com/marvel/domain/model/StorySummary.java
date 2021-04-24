@@ -38,11 +38,11 @@ public class StorySummary implements Serializable {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "story_list_id")
-	private StoryList storyList;
+	private Story storyList;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "character_list_id")
-	private Character characterList;
+	@JoinColumn(name = "character_id")
+	private Character character;
 
 	public Long getId() {
 		return id;
@@ -76,20 +76,20 @@ public class StorySummary implements Serializable {
 		this.type = type;
 	}
 
-	public StoryList getStoryList() {
+	public Story getStoryList() {
 		return storyList;
 	}
 
-	public void setStoryList(StoryList storyList) {
+	public void setStoryList(Story storyList) {
 		this.storyList = storyList;
 	}
-	
-	public Character getCharacterList() {
-		return characterList;
+
+	public Character getCharacter() {
+		return character;
 	}
 
-	public void setCharacterList(Character characterList) {
-		this.characterList = characterList;
+	public void setCharacter(Character character) {
+		this.character = character;
 	}
 
 	@Override

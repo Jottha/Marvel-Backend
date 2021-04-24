@@ -16,35 +16,37 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_story_list")
-public class StoryList implements Serializable {
+@Table(name = "tb_series")
+public class Series implements Serializable {
 
-	private static final long serialVersionUID = -3009376004251360355L;
+	private static final long serialVersionUID = 6927078413440504928L;
 
 	@Id
 	@Column(name = "id", unique = true, nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	//The number of total available stories in this list. Will always be greater than or equal to the "returned" value.,
+	//The number of total available series in this list.
+	// Will always be greater than or equal to the "returned" value.,
 	@Column(name = "total_available")
-	private int available;
+	private int available; 
 
-	//The number of stories returned in this collection (up to 20).,
+	//The number of series returned in this collection (up to 20).,
 	@Column(name = "returned")
 	private int returned;
 
-	//The path to the full list of stories in this collection.,
+	//The path to the full list of series in this collection.,
 	@Column(name = "collection_uri")
 	private String collectionUri;
 
-	//The list of returned stories in this collection.
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "storyList")
-	private List<StorySummary> listStorySummary;
+	//items (Array[SeriesSummary], optional): 
+	//The list of returned series in this collection.
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "series")
+	private List<SeriesSummary> listSeriesSummary;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "character_list_id")
-	private Character characterList;
+	@JoinColumn(name = "character_id")
+	private Character character;
 
 	public Long getId() {
 		return id;
@@ -78,20 +80,20 @@ public class StoryList implements Serializable {
 		this.collectionUri = collectionUri;
 	}
 
-	public List<StorySummary> getListStorySummary() {
-		return listStorySummary;
+	public List<SeriesSummary> getListSeriesSummary() {
+		return listSeriesSummary;
 	}
 
-	public void setListStorySummary(List<StorySummary> listStorySummary) {
-		this.listStorySummary = listStorySummary;
+	public void setListSeriesSummary(List<SeriesSummary> listSeriesSummary) {
+		this.listSeriesSummary = listSeriesSummary;
 	}
 
-	public Character getCharacterList() {
-		return characterList;
+	public Character getCharacter() {
+		return character;
 	}
 
-	public void setCharacterList(Character characterList) {
-		this.characterList = characterList;
+	public void setCharacter(Character character) {
+		this.character = character;
 	}
 
 	@Override
@@ -104,10 +106,10 @@ public class StoryList implements Serializable {
 		if (this == obj) {
 			return true;
 		}
-		if (!(obj instanceof StoryList)) {
+		if (!(obj instanceof Series)) {
 			return false;
 		}
-		StoryList other = (StoryList) obj;
+		Series other = (Series) obj;
 		return Objects.equals(id, other.id);
 	}
 }

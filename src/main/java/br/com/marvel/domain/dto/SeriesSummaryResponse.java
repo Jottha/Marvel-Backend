@@ -10,7 +10,7 @@ public class SeriesSummaryResponse implements Serializable {
 
 	private String name;
 
-	private SeriesListResponse seriesListResponse;
+	private SeriesResponse seriesListResponse;
 
 	public String getResourceUri() {
 		return resourceUri;
@@ -28,11 +28,11 @@ public class SeriesSummaryResponse implements Serializable {
 		this.name = name;
 	}
 
-	public SeriesListResponse getSeriesListResponse() {
+	public SeriesResponse getSeriesListResponse() {
 		return seriesListResponse;
 	}
 
-	public void setSeriesListResponse(SeriesListResponse seriesListResponse) {
+	public void setSeriesListResponse(SeriesResponse seriesListResponse) {
 		this.seriesListResponse = seriesListResponse;
 	}
 }

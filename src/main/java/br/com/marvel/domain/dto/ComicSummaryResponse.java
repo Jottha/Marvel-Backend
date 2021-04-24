@@ -10,7 +10,7 @@ public class ComicSummaryResponse implements Serializable {
 
 	private String name;
 
-	private ComicListResponse comicListResponse;
+	private ComicResponse comicListResponse;
 
 	public String getResourceUri() {
 		return resourceUri;
@@ -28,11 +28,11 @@ public class ComicSummaryResponse implements Serializable {
 		this.name = name;
 	}
 
-	public ComicListResponse getComicListResponse() {
+	public ComicResponse getComicListResponse() {
 		return comicListResponse;
 	}
 
-	public void setComicListResponse(ComicListResponse comicListResponse) {
+	public void setComicListResponse(ComicResponse comicListResponse) {
 		this.comicListResponse = comicListResponse;
 	}
 }

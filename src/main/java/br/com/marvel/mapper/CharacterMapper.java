@@ -30,10 +30,10 @@ public class CharacterMapper {
 		characterResponse.setResourceUri(character.getResourceUri());
 		characterResponse.setListUrlResponse(UrlMapper.createUrlResponseList(character.getListUrl()));
 		characterResponse.setImThumbnail(ImageMapper.createImageResponse(character.getImThumbnail()));
-		characterResponse.setListComicListResponse(ComicListMapper.createComicListResponseList(character.getListComicList()));
-		characterResponse.setListStoryListResponse(StoryListMapper.createStoryListResponseList(character.getListStoryList()));
-		characterResponse.setListEventListResponse(EventListMapper.createEventListResponseList(character.getListEventList()));
-		characterResponse.setListSeriesListResponse(SeriesListMapper.createSeriesListResponseList(character.getListSeriesList()));
+		characterResponse.setListComicListResponse(ComicListMapper.createComicListResponseList(character.getListComic()));
+		characterResponse.setListStoryListResponse(StoryListMapper.createStoryListResponseList(character.getListStory()));
+		characterResponse.setListEventListResponse(EventListMapper.createEventListResponseList(character.getListEvent()));
+		characterResponse.setListSeriesListResponse(SeriesListMapper.createSeriesListResponseList(character.getListSeries()));
 
 		return characterResponse;
 	}
