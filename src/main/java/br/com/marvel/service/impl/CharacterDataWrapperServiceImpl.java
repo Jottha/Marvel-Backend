@@ -5,11 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.marvel.commos.FilterRequest;
+import br.com.marvel.commos.PaginationRequest;
 import br.com.marvel.domain.dto.CharacterDataWrapperResponse;
 import br.com.marvel.domain.dto.ComicResponse;
 import br.com.marvel.domain.dto.EventResponse;
 import br.com.marvel.domain.dto.SeriesResponse;
 import br.com.marvel.domain.dto.StoryResponse;
+import br.com.marvel.domain.dto.request.CharacterDataWrapperRequest;
 import br.com.marvel.mapper.CharacterDataWrapperMapper;
 import br.com.marvel.mapper.ComicListMapper;
 import br.com.marvel.mapper.EventListMapper;
@@ -41,9 +44,9 @@ public class CharacterDataWrapperServiceImpl implements CharacterDataWrapperServ
 	private StoryListRepository storyListRepository;
 
 	@Override
-	public List<CharacterDataWrapperResponse> listCharacterDataWrapperResponse() {
+	public List<CharacterDataWrapperResponse> listCharacterDataWrapperResponse(FilterRequest<CharacterDataWrapperRequest> characterDataWrapperRequest, PaginationRequest pagination) {
 		
-		return CharacterDataWrapperMapper.createCharacterDataWrapperResponseList(this.characterDataWrapperRepository.findAll());
+		return CharacterDataWrapperMapper.createCharacterDataWrapperResponseList(this.characterDataWrapperRepository.getListByFilterWithPagination(characterDataWrapperRequest, pagination));
 	}
 
 	@Override

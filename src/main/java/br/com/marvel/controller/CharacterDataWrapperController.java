@@ -1,5 +1,6 @@
 package br.com.marvel.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.marvel.commos.FilterRequest;
+import br.com.marvel.commos.PaginationRequest;
 import br.com.marvel.domain.dto.CharacterDataWrapperResponse;
 import br.com.marvel.domain.dto.ComicResponse;
 import br.com.marvel.domain.dto.EventResponse;
 import br.com.marvel.domain.dto.SeriesResponse;
 import br.com.marvel.domain.dto.StoryResponse;
+import br.com.marvel.domain.dto.request.CharacterDataWrapperRequest;
 import br.com.marvel.service.CharacterDataWrapperService;
 
 @RestController
@@ -23,11 +27,25 @@ public class CharacterDataWrapperController {
 
 	@Autowired
 	private CharacterDataWrapperService characterDataWrapperService;
-
+	
 	@GetMapping(value = "/characters", produces = "application/json")
-	public List<CharacterDataWrapperResponse> list() {
-
-		return this.characterDataWrapperService.listCharacterDataWrapperResponse();
+	public List<CharacterDataWrapperResponse> list(
+			@RequestParam(name = "strSearch", required = false) String name,          
+			@RequestParam(name = "strSearch", required = false) String nameStartsWith,
+			@RequestParam(name = "strSearch", required = false) Date modifiedSince,   
+			@RequestParam(name = "strSearch", required = false) List<Long> comics,    
+			@RequestParam(name = "strSearch", required = false) List<Long> series,    
+			@RequestParam(name = "strSearch", required = false) List<Long> events,    
+			@RequestParam(name = "strSearch", required = false) List<Long> stories,   
+			@RequestParam(name = "sortByAttribute", required = false) String sortByAttribute,
+			@RequestParam(name = "page", required = false) Integer page,
+			@RequestParam(name = "pageSize", required = false) Integer pageSize
+			) {
+		FilterRequest<CharacterDataWrapperRequest> characterDataWrapperRequest = new FilterRequest<CharacterDataWrapperRequest>(name, nameStartsWith, modifiedSince, comics, series, events, stories);
+		PaginationRequest pagination = new PaginationRequest(page, pageSize, sortByAttribute);
+		characterDataWrapperRequest.setData(new CharacterDataWrapperRequest(name, nameStartsWith, modifiedSince, comics, series, events, stories, sortByAttribute));
+			
+		return this.characterDataWrapperService.listCharacterDataWrapperResponse(characterDataWrapperRequest, pagination);
 	}
 
 	@GetMapping(value = "/characters/{characterId}", produces = "application/json")

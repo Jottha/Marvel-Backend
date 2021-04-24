@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.com.marvel.domain.model.CharacterDataWrapper;
 
 @Repository
-public interface CharacterDataWrapperRepository extends JpaRepository<CharacterDataWrapper, Long> {
+public interface CharacterDataWrapperRepository extends JpaRepository<CharacterDataWrapper, Long>, CharacterDataWrapperRepositoryCustom {
 
 }
